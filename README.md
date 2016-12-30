@@ -5,7 +5,7 @@ This `docker-compose.yml` file can be used to build a Grafana environment that a
 Each container has one or more volumes defined for data persistency, in `./data/`:
 
 * `./data/influxdb` for the InfluxDB data;
-* `/data/telegraf/telegraf.conf` for the Telegraf configuration file;
+* `./data/telegraf/telegraf.conf` for the Telegraf configuration file;
 * `./data/grafana/lib`, `./data/grafana/log`, and `/data/grafana/etc` for the Grafana data.
 
 The current directory must contain a `data` directory, and two configuration must be created before running the containers:
