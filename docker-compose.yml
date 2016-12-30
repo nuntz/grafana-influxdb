@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  influxdb:
+    image: "influxdb"
+    ports:
+      - "8086:8086"
+      - "8083:8083"
+    volumes:
+      - ./data/influxdb:/var/lib/influxdb
+        
+  telegraf:
+    image: "nuntz/telegraf-snmp"
+    volumes:
+      - ./data/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    
+  grafana:
+    image: "grafana/grafana"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data/grafana/lib:/var/lib/grafana
+      - ./data/grafana/log:/var/log/grafana
+      - ./data/grafana/etc:/etc/grafana
